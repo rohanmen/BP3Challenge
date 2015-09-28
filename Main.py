@@ -116,7 +116,7 @@ def openAndClosedInRange(tasks, openDate, closeDate):
 	for i in range(len(tasks)):
 		myDateCreate = tasks[i].createDate
 		myDateClose = tasks[i].closeDate
-		if myDateCreate.isEqual(closeDate) == -1:
+		if myDateCreate.isEqual(closeDate) != 1:
 			if myDateClose == None:
 				tasks_needed.append(tasks[i])
 			elif myDateClose.isEqual(openDate) == 0 or myDateClose.isEqual(openDate) == 1:
@@ -240,13 +240,13 @@ def openAndClosedTaskByAssignee(tasks, assignee):
 tasks = getTasksFromFile(FILE_NAME)
 
 #example on how to create Date objects
-date1 = Date.Date("2015-02-22T22:24:57Z")
-date2 = Date.Date("2014-12-22T21:33:19Z")
+#date1 = Date.Date("2015-02-22T22:24:57Z")
+#date2 = Date.Date("2014-12-22T21:33:19Z")
 
 #example on how to run the methods
-currentOpenAndClosed(tasks, date1)
-openAndClosedInRange(tasks, date1, date2)
-mostRecentTaskByInstanceId(tasks, 477)
-tasksByInstanceId(tasks, 634)
-openAndClosedTaskByAssignee(tasks, "dbailie")
+#currentOpenAndClosed(tasks, date1)
+#openAndClosedInRange(tasks, date1, date2)
+#mostRecentTaskByInstanceId(tasks, 477)
+#tasksByInstanceId(tasks, 634)
+#openAndClosedTaskByAssignee(tasks, "dbailie")
 
