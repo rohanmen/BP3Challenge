@@ -56,6 +56,12 @@ def getTasksFromFile(fileName):
 
 	return allTasks
 
+
+
+#*****************************************
+#*************** METHOD 1 ****************
+#*****************************************
+
 #prints current number of open and closed tasks given a date
 #
 #inputs : tasks -> list of Task objects
@@ -88,6 +94,11 @@ def currentOpenAndClosed(tasks, givenDate):
 	print "Open Count: ", openCount
 	print "Closed Count: ", closedCount
 
+
+
+#*****************************************
+#*************** METHOD 2 ****************
+#*****************************************
 
 #prints current number of open and closed tasks given a range of dates
 #
@@ -127,6 +138,11 @@ def openAndClosedInRange(tasks, openDate, closeDate):
 	print "Closed Count: ", closedCount
 
 
+
+#*****************************************
+#*************** METHOD 3 ****************
+#*****************************************
+
 #prints the most recent task based on instanceId
 #
 #inputs : tasks -> list of Task objects
@@ -162,6 +178,11 @@ def mostRecentTaskByInstanceId(tasks, instanceId):
 	print "Name: ", myTask.name
 
 
+
+#*****************************************
+#*************** METHOD 4 ****************
+#*****************************************
+
 #prints the number of for a given instanceId
 #
 #inputs : tasks -> list of Task objects
@@ -178,6 +199,13 @@ def tasksByInstanceId(tasks, instanceId):
 
 	#return count
 	print "Number of Tasks : ", count
+
+
+
+
+#*****************************************
+#*************** METHOD 5 ****************
+#*****************************************
 
 #prints the number of open and closed tasks for a given asignee
 #
@@ -200,12 +228,25 @@ def openAndClosedTaskByAssignee(tasks, assignee):
 	print "Open Count: ", openCount
 	print "Closed Count: ", closedCount
 
+
+
+#*****************************************
+#*****************************************
+#**** WRITE CODE TO TEST METHODS HERE ****
+#*****************************************
+#*****************************************
+
+#first get the tasks form the json file
 tasks = getTasksFromFile(FILE_NAME)
-date1 = Date.Date("2010-11-22T21:33:19Z")
-date2 = Date.Date("2014-11-22T21:33:19Z")
-tasksByInstanceId(tasks, 634)
-#openAndClosedTaskByAssignee(tasks, "dbailie")
-#print date1.isEqual(date2)
-#mostRecentTaskByInstanceId(tasks, 477)
+
+#example on how to create Date objects
+#date1 = Date.Date("2010-11-22T21:33:19Z")
+#date2 = Date.Date("2014-11-22T21:33:19Z")
+
+#example on how to run the methods
+#currentOpenAndClosed(tasks, date2)
 #openAndClosedInRange(tasks, date1, date2)
-currentOpenAndClosed(tasks, date2)
+#mostRecentTaskByInstanceId(tasks, 477)
+#tasksByInstanceId(tasks, 634)
+#openAndClosedTaskByAssignee(tasks, "dbailie")
+

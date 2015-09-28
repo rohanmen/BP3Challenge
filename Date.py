@@ -1,6 +1,12 @@
 
 class Date:
 
+	#timeString shoudl be in the format "YYYY-MM-DDTHH:MM:3SSZ"
+	#keeps the same format as the time format given in the json files
+	#
+	#to create a new Date object, do the following:
+	#d = Date("2014-10-13T23:32:32Z")
+	#
 	def __init__(self, timeString):
 
 		date =  timeString.split("T")[0].split("-")
