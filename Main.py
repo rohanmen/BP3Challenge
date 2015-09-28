@@ -6,7 +6,12 @@ FILE_NAME = "task.json"
 
 
 
-
+#parses the json file and makes a list of task objects
+#
+#input : filename -> name of the json file
+#
+#output : returns a list of Task objects made from parsing the json file
+# 
 def getTasksFromFile(fileName):
 	allTasks = []
 
@@ -51,7 +56,14 @@ def getTasksFromFile(fileName):
 
 	return allTasks
 
-
+#prints current number of open and closed tasks given a date
+#
+#inputs : tasks -> list of Task objects
+#		 givenDate -> Date object representing the date for the tasks
+#
+#outputs : returns nothing
+#		   prints the Open and Closed count
+#
 def currentOpenAndClosed(tasks, givenDate):
 
 	#filter the tasks
@@ -64,7 +76,10 @@ def currentOpenAndClosed(tasks, givenDate):
 	openCount = 0
 	closedCount = 0
 	for i in range(len(tasks_needed)):
-		if tasks_needed[i].isOpen:
+		closeDate = tasks_needed[i].closeDate
+		if closeDate == None:
+			openCount = openCount + 1
+		elif closeDate.isEqual(currentDate) == 1
 			openCount = openCount + 1
 		else:
 			closedCount = closedCount + 1
@@ -74,6 +89,15 @@ def currentOpenAndClosed(tasks, givenDate):
 	print "Closed Count: ", closedCount
 
 
+#prints current number of open and closed tasks given a range of dates
+#
+#inputs : tasks -> list of Task objects
+#		  openDate -> Date object representing the start date of the range
+#		  closeDate -> Date object representing the end date of the range
+#
+#outputs : returns nothing
+#		   prints the Open and Closed count
+#
 def openAndClosedInRange(tasks, openDate, closeDate):
 
 	#filter by openDate
@@ -90,7 +114,10 @@ def openAndClosedInRange(tasks, openDate, closeDate):
 	openCount = 0
 	closedCount = 0
 	for i in range(len(tasks_needed)):
-		if tasks_needed[i].isOpen:
+		myDateClose = tasks_needed[i]
+		if myDateClose == None:
+			openCount = openCount + 1
+		elif myDateClose.isEqual(closeDate) == 1
 			openCount = openCount + 1
 		else:
 			closedCount = closedCount + 1
@@ -99,7 +126,15 @@ def openAndClosedInRange(tasks, openDate, closeDate):
 	print "Open Count: ", openCount
 	print "Closed Count: ", closedCount
 
-#most recent by createDate
+
+#prints the most recent task based on instanceId
+#
+#inputs : tasks -> list of Task objects
+#		  intanceId -> integer representing the instanceId of a task
+#
+#outputs : returns nothing
+#		   prints the name of the most recent task for that instance id
+#
 def mostRecentTaskByInstanceId(tasks, instanceId):
 
 	#get all tasks with instanceId
@@ -127,6 +162,14 @@ def mostRecentTaskByInstanceId(tasks, instanceId):
 	print "Name: ", myTask.name
 
 
+#prints the number of for a given instanceId
+#
+#inputs : tasks -> list of Task objects
+#		  instanceId -> integer representing the instanceId of a task
+#
+#outputs : returns nothing
+#		   prints the count of tasks
+#
 def tasksByInstanceId(tasks, instanceId):
 	count = 0
 	for i in range(len(tasks)):
@@ -136,6 +179,14 @@ def tasksByInstanceId(tasks, instanceId):
 	#return count
 	print "Number of Tasks : ", count
 
+#prints the number of open and closed tasks for a given asignee
+#
+#inputs : tasks -> list of Task objects
+#		  instanceId -> string representing the assignee of a task
+#
+#outputs : returns nothing
+#		   prints the count of open and closed tasks
+#
 def openAndClosedTaskByAssignee(tasks, assignee):
 	openCount = 0
 	closedCount = 0
