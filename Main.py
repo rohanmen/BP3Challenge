@@ -85,7 +85,7 @@ def currentOpenAndClosed(tasks, givenDate):
 		closeDate = tasks_needed[i].closeDate
 		if closeDate == None:
 			openCount = openCount + 1
-		elif closeDate.isEqual(currentDate) == 1
+		elif closeDate.isEqual(givenDate) == 1:
 			openCount = openCount + 1
 		else:
 			closedCount = closedCount + 1
@@ -125,10 +125,10 @@ def openAndClosedInRange(tasks, openDate, closeDate):
 	openCount = 0
 	closedCount = 0
 	for i in range(len(tasks_needed)):
-		myDateClose = tasks_needed[i]
+		myDateClose = tasks_needed[i].closeDate
 		if myDateClose == None:
 			openCount = openCount + 1
-		elif myDateClose.isEqual(closeDate) == 1
+		elif myDateClose.isEqual(closeDate) == 1:
 			openCount = openCount + 1
 		else:
 			closedCount = closedCount + 1
@@ -165,11 +165,11 @@ def mostRecentTaskByInstanceId(tasks, instanceId):
 		return name
 
 	myTask = tasks_needed[0]
-	myTask.createDate.printDate()
+	#myTask.createDate.printDate()
 	for i in range(len(tasks_needed)):
 		myDate = myTask.createDate
 		otherDate = tasks_needed[i].createDate
-		otherDate.printDate()
+		#otherDate.printDate()
 
 		if otherDate.isEqual(myDate) == 1:
 			myTask = tasks_needed[i]
@@ -240,13 +240,13 @@ def openAndClosedTaskByAssignee(tasks, assignee):
 tasks = getTasksFromFile(FILE_NAME)
 
 #example on how to create Date objects
-#date1 = Date.Date("2010-11-22T21:33:19Z")
-#date2 = Date.Date("2014-11-22T21:33:19Z")
+date1 = Date.Date("2015-02-22T22:24:57Z")
+date2 = Date.Date("2014-12-22T21:33:19Z")
 
 #example on how to run the methods
-#currentOpenAndClosed(tasks, date2)
-#openAndClosedInRange(tasks, date1, date2)
-#mostRecentTaskByInstanceId(tasks, 477)
-#tasksByInstanceId(tasks, 634)
-#openAndClosedTaskByAssignee(tasks, "dbailie")
+currentOpenAndClosed(tasks, date1)
+openAndClosedInRange(tasks, date1, date2)
+mostRecentTaskByInstanceId(tasks, 477)
+tasksByInstanceId(tasks, 634)
+openAndClosedTaskByAssignee(tasks, "dbailie")
 
